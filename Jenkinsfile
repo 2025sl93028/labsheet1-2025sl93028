@@ -42,7 +42,7 @@ print('All tests passed successfully')
 
         stage('Deploy') {
             steps {
-                sshagent(['ec2-key']) {
+                sshagent(['aws-key']) {
                     sh '''
                     scp -o StrictHostKeyChecking=no calculator.py ec2-user@16.170.229.151:/home/ec2-user/
                     ssh -o StrictHostKeyChecking=no ec2-user@16.170.229.151 "python3 calculator.py"
