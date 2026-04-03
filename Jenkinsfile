@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'echo Build Stage'
+                sh 'echo "Build Stage"'
                 sh 'python3 --version'
             }
         }
@@ -19,23 +19,23 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                python3 -c "
+                python3 - <<EOF
 import calculator
 
-print('Testing add...')
-assert calculator.add(2, 4) == 6
+print("Testing add...")
+assert calculator.add(2, 3) == 5
 
-print('Testing multiply...')
+print("Testing multiply...")
 assert calculator.multiply(2, 3) == 6
 
-print('Testing divide...')
+print("Testing divide...")
 assert calculator.divide(6, 3) == 2
 
-print('Testing subtract...')
+print("Testing subtract...")
 assert calculator.subtract(5, 3) == 2
 
-print('All tests passed successfully')
-"
+print("All tests passed successfully")
+EOF
                 '''
             }
         }
