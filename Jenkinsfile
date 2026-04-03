@@ -23,7 +23,7 @@ pipeline {
 import calculator
 
 print('Testing add...')
-assert calculator.add(2, 3) == 5
+assert calculator.add(2, 4) == 6
 
 print('Testing multiply...')
 assert calculator.multiply(2, 3) == 6
